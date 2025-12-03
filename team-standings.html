@@ -1,0 +1,116 @@
+---
+title: "Official Team Standings"
+layout: splash
+permalink: /team-standings/
+header:
+  overlay_color: "#000"
+  overlay_image: /assets/images/placeholder-track.jpg
+  caption: "Last Updated: {{ 'now' | date: '%B %d, %Y at %I:%M %p' }}"
+excerpt: "The following is the current official medal and points tally for all participating schools, automatically sorted by total points."
+---
+
+{% assign standings = site.data.standings %}
+
+{% if standings %}
+  {% comment %}
+    Sort the standings data by the 'Points' column in descending order (using reverse).
+  {% endcomment %}
+  {% assign sorted_standings = standings | sort: 'Points' | reverse %}
+
+  <style>
+    /* Custom CSS to enhance the table aesthetics */
+    .responsive-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px; /* Space between rows */
+      margin-bottom: 2rem;
+    }
+    .responsive-table th, .responsive-table td {
+      padding: 1rem;
+      text-align: center;
+      vertical-align: middle;
+      border: none;
+    }
+    .responsive-table th {
+      background-color: #00796b; /* Teal color */
+      color: white;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .responsive-table tr:nth-child(odd) {
+      background-color: #f7f7f7;
+    }
+    .responsive-table tr:hover {
+      background-color: #e0f2f1; /* Light hover effect */
+    }
+    .responsive-table tr {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .medal-gold { color: #FFD700; font-weight: bold; font-size: 1.25em; }
+    .medal-silver { color: #C0C0C0; font-weight: bold; font-size: 1.25em; }
+    .medal-bronze { color: #CD7F32; font-weight: bold; font-size: 1.25em; }
+    .rank-cell {
+      font-weight: 700;
+      font-size: 1.5rem;
+      width: 50px;
+      padding-right: 0.5rem;
+      border-right: 3px solid #009688; /* Highlight separator */
+    }
+    .school-cell {
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .responsive-table {
+        font-size: 0.9rem;
+      }
+      .responsive-table th, .responsive-table td {
+        padding: 0.75rem 0.5rem;
+      }
+      .rank-cell {
+        font-size: 1.2rem;
+        width: 40px;
+      }
+      .school-cell {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+  <div class="table-wrapper">
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th class="rank-cell">#</th>
+          <th class="school-cell">School</th>
+          <th><span class="medal-gold">🥇</span> Gold</th>
+          <th><span class="medal-silver">🥈</span> Silver</th>
+          <th><span class="medal-bronze">🥉</span> Bronze</th>
+          <th>Total Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in sorted_standings %}
+          {% assign rank = forloop.index %}
+          <tr>
+            <td class="rank-cell">{{ rank }}</td>
+            <td class="school-cell">{{ row.School }}</td>
+            <td><span class="medal-gold">{{ row.Gold }}</span></td>
+            <td><span class="medal-silver">{{ row.Silver }}</span></td>
+            <td><span class="medal-bronze">{{ row.Bronze }}</span></td>
+            <td><strong>{{ row.Points }}</strong></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% else %}
+  <p class="notice--info">No standings data found. Please ensure the <code>_data/standings.csv</code> file exists and is correctly populated.</p>
+{% endif %}
