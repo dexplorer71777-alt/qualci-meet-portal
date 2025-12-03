@@ -6,9 +6,14 @@ subtitle: QUALCI Cluster Meet 2026
 description: |
   Official results, standings, and schedules for the Cluster Meet.
   This site uses the Minimal Mistakes theme on GitHub Pages.
+# 1. Base Domain (No project name)
 url: "https://dexplorer71777-alt.github.io" 
+
+# 2. Project Sub-directory (Must match your repository name)
 baseurl: "/qualci-meet-portal" 
-repository: "dexplorer71777-alt/qualci-meet-portal"
+
+# 3. Repository Slug (Used for theme/plugins)
+repository: "dexplorer71777-alt/qualci-meet-portal" 
 
 # Site Logo/Author Profile (Used for a clean site logo in Minimal Mistakes)
 author:
