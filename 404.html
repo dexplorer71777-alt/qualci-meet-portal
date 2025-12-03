@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>404 Not Found - Redirecting</title>
+    <script>
+      // Redirects the user from the 404 page to the homepage of the project
+      var projectPath = '{{ site.baseurl }}';
+      window.location.replace(projectPath + '/');
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the homepage...</p>
+  </body>
+</html>
