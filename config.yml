@@ -7,7 +7,7 @@ description: |
   Official results, standings, and schedules for the Cluster Meet.
   This site uses the Minimal Mistakes theme on GitHub Pages.
 url: "https://<YOUR-USERNAME>.github.io" # <<< CHANGE THIS >>> Example: https://myuser.github.io
-baseurl: "/qualci-meet-portal" # <<< CHANGE THIS >>> Example: /qualci-meet-portal (or leave empty "" if using a username.github.io repo)
+baseurl: "/qualci-meet-portal" # <<< https://github.com/dexplorer71777-alt/qualci-meet-portal >>> Example: /qualci-meet-portal (or leave empty "" if using a username.github.io repo)
 repository: "<YOUR-USERNAME>/qualci-meet-portal" # <<< CHANGE THIS >>> Example: myuser/qualci-meet-portal
 
 # Site Logo/Author Profile (Used for a clean site logo in Minimal Mistakes)
